@@ -1,17 +1,21 @@
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+
+import Layout from './components/Layout';
+import AboutPage from './pages/About';
+import BlogPage from './pages/Blog';
+import HomePage from './pages/Home';
+import NotFoundPage from './pages/NotFound';
 
 function App() {
   return (
-    <div className='App'>
-      <header>
-        <a href='/'>Home</a>
-        <a href='/posts'>Blog</a>
-        <a href='/about'>About</a>
-      </header>
-      <div>
-        <h1>Get started with React-Router 6</h1>
-      </div>
-    </div>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path='/blogs' element={<BlogPage />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='*' element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }
 
