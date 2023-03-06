@@ -1,20 +1,31 @@
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
 import '../index.css';
+import CustomLink from './CustomLink';
+
+const setActive = ({ isActive }: { isActive: boolean }): string | undefined => {
+  return isActive ? 'active-link' : undefined;
+};
 
 const Layout = () => {
   return (
     <>
       <header>
-        <Link to='/'>Home</Link>
-        <Link to='/blogs'>Blog</Link>
-        <Link to='/about'>About</Link>
+        <NavLink to='/' className={setActive}>
+          Home
+        </NavLink>
+        <NavLink to='/blogs' className={setActive}>
+          Blog
+        </NavLink>
+        <CustomLink to='/about'>
+          About
+				</CustomLink>
       </header>
 
       <main className='container'>
         <Outlet />
       </main>
 
-      <footer className='footer'>2023</footer>
+      <footer className='footer'>React Router tutorial 2023</footer>
     </>
   );
 };
