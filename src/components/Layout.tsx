@@ -13,7 +13,7 @@ const Layout = () => {
         <NavLink to='/' className={setActive}>
           Home
         </NavLink>
-        <NavLink to='/blogs' className={setActive}>
+        <NavLink to='/posts' className={setActive}>
           Blog
         </NavLink>
         <CustomLink to='/about'>

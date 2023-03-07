@@ -50,11 +50,20 @@ h2 {
   margin: 0 auto;
 }
 
-.footer {
-  padding: 0 1.5rem;
+.container a {
+  text-decoration: none;
+  color: var(--color-bg);
+}
+
+.container a:hover {
+  text-decoration: underline;
 }
 
 .active-link {
   color: var(--color-active);
   cursor: default;
+}
+
+.footer {
+  padding: 0 1.5rem;
 }

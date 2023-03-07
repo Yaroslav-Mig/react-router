@@ -1,4 +1,4 @@
-const AboutPage = () => {
+const AboutPage = (): JSX.Element => {
   return (
     <div>
       <h2>About us</h2>
