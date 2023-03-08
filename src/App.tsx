@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import HomePage from './pages/Home';
@@ -15,6 +15,7 @@ function App() {
       <Route path='/' element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path='about' element={<AboutPage />} />
+        <Route path='about-us' element={<Navigate to='/about' replace />} />
         <Route path='posts' element={<BlogPage />} />
         <Route path='posts/:id' element={<PostPage />} />
         <Route path='posts/:id/edit' element={<EditPost />} />

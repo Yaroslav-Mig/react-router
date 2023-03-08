@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { PostType } from './Blog';
 
 const PostPage = (): JSX.Element => {
   const { id } = useParams();
+	const navigate = useNavigate();
 
-  const [post, setPost] = useState<PostType | null>(null);
+	const [post, setPost] = useState<PostType | null>(null);
+
+	const goBack = () => navigate(-1);
+	const goHome = () => navigate('/', {replace: true})
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
@@ -15,7 +19,9 @@ const PostPage = (): JSX.Element => {
   }, [id]);
 
   return (
-    <>
+		<>
+			<button onClick={goBack}>Go back</button>
+			<button onClick={goHome}>Go home</button>
       {post && (
         <article>
           <h3>{post?.title}</h3>

@@ -2,13 +2,13 @@ import { FC, ReactNode } from 'react';
 import { Link, useMatch } from 'react-router-dom';
 import '../index.css';
 
-interface CustomLinkProps {
+interface CustomLinkProps<T> {
   to: string;
   children?: ReactNode;
-  restProps?: any;
+  restProps?: T;
 }
 
-const CustomLink: FC<CustomLinkProps> = (props) => {
+const CustomLink: FC<CustomLinkProps<Object>> = (props) => {
   const { to, children, ...restProps } = props;
 
   const match = useMatch(to);
