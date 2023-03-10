@@ -1,12 +1,17 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { useAuthContext } from '../hoc/useAuthContext';
 import '../index.css';
-import CustomLink from './CustomLink';
+
+import Logout from './Logout';
 
 const setActive = ({ isActive }: { isActive: boolean }): string | undefined => {
   return isActive ? 'active-link' : undefined;
 };
 
 const Layout = () => {
+  const { user } = useAuthContext();
+  const btnLogout = user ? <Logout /> : null;
+
   return (
     <>
       <header>
@@ -16,9 +21,10 @@ const Layout = () => {
         <NavLink to='/posts' className={setActive}>
           Blog
         </NavLink>
-        <CustomLink to='/about'>
+        <NavLink to='/about' className={setActive}>
           About
-				</CustomLink>
+        </NavLink>
+        {btnLogout}
       </header>
 
       <main className='container'>

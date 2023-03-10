@@ -1,7 +1,8 @@
 :root {
-  --color-bg: #2c2c32;
-  --color-bg-hover: #0f7dc6;
-  --color-active: #79b6e1;
+  --color-bg: hsl(240, 6%, 18%);
+  --color-bg-hover: hsl(204, 86%, 42%);
+  --color-active: hsl(205, 63%, 68%);
+	--color-error:hsl(5, 70%, 50%);
 }
 
 *,
@@ -23,6 +24,7 @@ code {
 }
 
 header {
+	position: relative;
   background-color: var(--color-bg);
   padding: 2rem 0;
   text-align: center;
@@ -62,6 +64,20 @@ h2 {
 .active-link {
   color: var(--color-active);
   cursor: default;
+}
+
+.btn-logout {
+	position: absolute;
+	top: 50%;
+	right: 5%;
+	padding: 5px;
+	transform:  translateY(-50%);
+	cursor: pointer;
+}
+
+.error {
+  padding: 7px 0;
+  color: var(--color-error);
 }
 
 .footer {

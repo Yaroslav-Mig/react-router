@@ -26,7 +26,6 @@ const PostPage = (): JSX.Element => {
         <article>
           <h3>{post?.title}</h3>
 					<p>{post?.body}</p>
-
           <Link to={`/posts/${id}/edit`}> Edit post</Link>
         </article>
       )}

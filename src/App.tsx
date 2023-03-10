@@ -7,11 +7,16 @@ import BlogPage from './pages/Blog';
 import PostPage from './pages/Post';
 import EditPost from './pages/EditPost';
 import CreatePost from './pages/CreatePost';
+import LoginPage from './pages/LogIn';
 import NotFoundPage from './pages/NotFound';
 
+import RequiredAuth from './hoc/RequiredAuth';
+import AuthProvider from './hoc/AuthProvider';
+
 function App() {
-  return (
-    <Routes>
+	return (
+		<AuthProvider>
+			<Routes>
       <Route path='/' element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path='about' element={<AboutPage />} />
@@ -19,10 +24,17 @@ function App() {
         <Route path='posts' element={<BlogPage />} />
         <Route path='posts/:id' element={<PostPage />} />
         <Route path='posts/:id/edit' element={<EditPost />} />
-        <Route path='posts/new' element={<CreatePost />} />
+        <Route path='posts/new' element={
+            <RequiredAuth>
+              <CreatePost />
+            </RequiredAuth>
+          }
+        />
+        <Route path='/login' element={<LoginPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Route>
     </Routes>
+		</AuthProvider>
   );
 }
 

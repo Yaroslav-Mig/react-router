@@ -28,6 +28,7 @@ const BlogPage = (): JSX.Element => {
   return (
     <div>
       <h2>Our news</h2>
+      <Link to={'/posts/new'}>Add new post</Link>
       <ul>{mappedPosts}</ul>
     </div>
   );
