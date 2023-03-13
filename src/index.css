@@ -63,7 +63,6 @@ h2 {
 
 .active-link {
   color: var(--color-active);
-  cursor: default;
 }
 
 .btn-logout {
